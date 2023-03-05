@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+ 
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            {% if product.name is empty %}
+                <h2 class="my-4">Créer un produit</h2>
+            {% else %}
+                <h2 class="my-4">Modifier un produit</h2>
+            {% endif %}
+            <div style="box-shadow: 2px 3px 9px 4px rgba(0,0,0,0.04);">
+                <div class="p-container-show p-4">
+                    <div class="row">
+                        <div class="col">
+                            <div class="p-display p-3">
+                                {{ form_start(form) }}
+                                    <p>
+                                        {{ form_label(form.name, 'Nom du produit') }}
+                                        {{ form_widget(form.name) }}
+                                    </p>
+    
+                                    <p>
+                                        {{ form_label(form.price, 'Prix en €') }}
+                                        {{ form_widget(form.price) }}
+                                    </p>
+
+                                    <p>
+                                        {{ form_label(form.stock, 'Stock actuel') }}
+                                        {{ form_widget(form.stock) }}
+                                    </p>
+
+                                    <p>
+                                        {{ form_label(form.stockage_capacity, 'Capacité de stockage') }}
+                                        {{ form_widget(form.stockage_capacity) }}
+                                    </p>
+
+                                    {{ form_rest(form) }}
+
+                                    <div class="p-actions">
+                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                    </div>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
