@@ -14,6 +14,7 @@ jobs:
     - name: Build docker
       working-directory: infra
       run: docker-compose -p dipli up -d --build
+        find infra
     - name: Init DB
       run: docker-compose -p dipli exec php-fpm php bin/console doctrine:schema:create
     - name: Load Fixture
