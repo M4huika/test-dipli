@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: checkout 
+      uses: actions/checkout@v3
     - name: Build docker
       run: cd infra; docker-compose -p dipli up -d --build
     - name: Init DB
