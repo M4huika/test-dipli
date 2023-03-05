@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: find infra
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Build docker
       working-directory: infra
       run: docker-compose -p dipli up -d --build
