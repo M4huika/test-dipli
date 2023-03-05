@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Build docker
+    - name: Build dockers
       working-directory: infra
       run: docker-compose -p dipli up -d --build
     - name: Init DB
