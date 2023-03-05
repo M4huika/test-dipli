@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
     - name: Build docker
-      run: cd ./infra; docker-compose -p dipli up -d --build
+      working-directory: infra
+      run: docker-compose -p dipli up -d --build
     - name: Init DB
       run: docker-compose -p dipli exec php-fpm php bin/console doctrine:schema:create
     - name: Load Fixture
